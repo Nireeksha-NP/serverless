@@ -1,0 +1,12 @@
+documentation:
+  version: '1'
+  title: My Serverless API
+  endpoints:
+    getTasks:
+      summary: "Get Tasks"
+      description: "Retrieve a list of tasks"
+      methodResponses:
+        - statusCode: 200
+          responseBody:
+            description: "A list of tasks"
+         

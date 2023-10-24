@@ -1,0 +1,40 @@
+service: serverless-poc
+frameworkVersion: "3"
+provider:
+  name: aws
+  runtime: nodejs16.x
+  stage: ${opt:stage,'dev'}
+  region: ${opt:region,'ap-south-1'}
+  memorySize: 128
+  logRetentionInDays: 1
+  
+functions:
+  getTasks:
+    handler: dist/handlers/getTasks.handler
+    events:
+      - http:
+          path: /tasks
+          method: get
+          # documentation: ${file(serverless.doc.yml):endpoints.getTasks}
+          
+          
+  createTask:
+    handler: dist/handlers/createTask.handler
+    events:
+      - http:
+          path: /tasks
+          method: post
+          
+          
+          
+  updateTask:
+    handler: dist/handlers/updateTask.handler
+    events:
+      - http:
+          path: /tasks/{id}
+          method: put
+plugins:
+  - serverless-offline
+
+
+    

@@ -1,0 +1,11 @@
+dist
+node_modules
+coverage
+build
+.github/
+.serverless
+postmanCollections
+custom
+*.yml
+*.json
+*.md
